@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Monte Carlo Stock Simulator</title>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="script.js" defer></script>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <header>
+    <span id="app-title">MONTE CARLO STOCK SIMULATOR</span>
+    <span id="selected-stock">Choose a stock below</span>
+    <span id="model-period">2019 model -> 2020 comparison</span>
+  </header>
+
+  <div id="screen">
+    <div id="empty-state">Choose a stock from the bar below to compare its true 2020 price with a Monte Carlo simulation.</div>
+  </div>
+
+  <div id="controls">
+    <div id="legend">
+      <span class="legend-item"><span class="legend-line real-line"></span>True price</span>
+      <span class="legend-item"><span class="legend-line simulation-line"></span>Monte Carlo average</span>
+      <label id="simulation-setting">
+        Simulations
+        <select id="simulation-count">
+          <option value="1">1</option>
+          <option value="5">5</option>
+          <option value="10" selected>10</option>
+          <option value="25">25</option>
+          <option value="50">50</option>
+          <option value="100">100</option>
+          <option value="250">250</option>
+        </select>
+      </label>
+    </div>
+    <div id="summary">The Monte Carlo result is generated using only the stock's 2019 daily returns.</div>
+    <button id="rerun" disabled>Run simulation again</button>
+  </div>
+
+  <footer>
+    <button class="stockpricecont" data-stock="AMZN">
+      <span>AMZN</span>
+      <img class="images" src="images/3068887.png" alt="Amazon" />
+      <span id="AMZNprice">--</span>
+    </button>
+    <button class="stockpricecont" data-stock="GOOG">
+      <span>GOOG</span>
+      <img class="images" src="images/googlelogo.jpg" alt="Google" />
+      <span id="GOOGprice">--</span>
+    </button>
+    <button class="stockpricecont" data-stock="AAPL">
+      <span>AAPL</span>
+      <img class="images" src="images/apple--600.png" alt="Apple" />
+      <span id="AAPLprice">--</span>
+    </button>
+    <button class="stockpricecont" data-stock="TSLA">
+      <span>TSLA</span>
+      <img class="images" src="images/tesla--600.png" alt="Tesla" />
+      <span id="TSLAprice">--</span>
+    </button>
+    <button class="stockpricecont" data-stock="NVDA">
+      <span>NVDA</span>
+      <img class="images" src="images/nvidia--600.png" alt="Nvidia" />
+      <span id="NVDAprice">--</span>
+    </button>
+    <button class="stockpricecont" data-stock="MSFT">
+      <span>MSFT</span>
+      <img class="images" src="images/msftlogo.jpg" alt="Microsoft" />
+      <span id="MSFTprice">--</span>
+    </button>
+    <button class="stockpricecont" data-stock="NFLX">
+      <span>NFLX</span>
+      <img class="images" src="images/nflxlogo.jpg" alt="Netflix" />
+      <span id="NFLXprice">--</span>
+    </button>
+  </footer>
+</body>
+</html>
